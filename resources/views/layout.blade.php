@@ -13,48 +13,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: fixed;
-        background: #343a40;
-        padding-top: 20px;
-    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background: #343a40;
+            padding-top: 20px;
+        }
 
-    .sidebar a {
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #d1d1d1;
-        display: block;
-    }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #d1d1d1;
+            display: block;
+        }
 
-    .sidebar a:hover {
-        color: #fff;
-        background: #495057;
-    }
+        .sidebar a:hover {
+            color: #fff;
+            background: #495057;
+        }
 
-    .sidebar a.active {
-        color: #fff;
-        background: #007bff;
-    }
+        .sidebar a.active {
+            color: #fff;
+            background: #007bff;
+        }
 
-    .main-content {
-        margin-left: 250px;
-        padding: 20px;
-    }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
 
-    .card {
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-    }
+        .card {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
 
-    .card-header {
-        background-color: #f8f9fc;
-        border-bottom: 1px solid #e3e6f0;
-        padding: 1rem 1.35rem;
-        font-weight: 600;
-    }
+        .card-header {
+            background-color: #f8f9fc;
+            border-bottom: 1px solid #e3e6f0;
+            padding: 1rem 1.35rem;
+            font-weight: 600;
+        }
     </style>
 
     @yield('styles')
@@ -118,10 +118,10 @@
 
         <div class="container-fluid">
             @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
             @endif
 
             @yield('content')
