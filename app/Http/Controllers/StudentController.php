@@ -9,7 +9,7 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $students = Student::latest()->paginate(10);
+        $students = Student::all();
         return view('students.index', compact('students'));
     }
 
@@ -22,9 +22,8 @@ class StudentController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:students',
             'address' => 'required',
-            'mobile' => 'required'
+            'mobile' => 'required',
         ]);
 
         Student::create($request->all());
@@ -33,5 +32,35 @@ class StudentController extends Controller
             ->with('success', 'Student created successfully.');
     }
 
-    // Add other methods (show, edit, update, destroy) similarly
+    public function show(Student $student)
+    {
+        return view('students.show', compact('student'));
+    }
+
+    public function edit(Student $student)
+    {
+        return view('students.edit', compact('student'));
+    }
+
+    public function update(Request $request, Student $student)
+    {
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'mobile' => 'required',
+        ]);
+
+        $student->update($request->all());
+
+        return redirect()->route('students.index')
+            ->with('success', 'Student updated successfully');
+    }
+
+    public function destroy(Student $student)
+    {
+        $student->delete();
+
+        return redirect()->route('students.index')
+            ->with('success', 'Student deleted successfully');
+    }
 }
