@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'View Student')
+@section('title', 'View Course')
 
 @section('content')
 <div class="card">
-    <div class="card-header">Student Details</div>
+    <div class="card-header">Course Details</div>
     <div class="card-body">
         <div class="card-body">
-            <h5 class="card-title">Name: {{ $student->name }}</h5>
-            <p class="card-text">Address: {{ $student->address }}</p>
-            <p class="card-text">Mobile: {{ $student->mobile }}</p>
+            <h5 class="card-title">Name: {{ $course->name }}</h5>
+            <p class="card-text">Syllabus: {{ $course->syllabus }}</p>
+            <p class="card-text">Duration: {{ $course->duration }}</p>
         </div>
         </hr>
     </div>
