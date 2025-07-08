@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Students')
+@section('title', 'Courses')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h2>Student List</h2>
+        <h2>Course Details</h2>
     </div>
     <div class="card-body">
-        <a href="{{ route('students.create') }}" class="btn btn-success btn-sm" title="Add New Student">
+        <a href="{{ route('courses.create') }}" class="btn btn-success btn-sm" title="Add New Course">
             <i class="fa fa-plus" aria-hidden="true"></i> Add New
         </a>
         <br><br>
@@ -18,34 +18,34 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Address</th>
-                        <th>Mobile</th>
+                        <th>Syllabus</th>
+                        <th>Duration</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $student)
+                    @foreach($courses as $course)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->address }}</td>
-                        <td>{{ $student->mobile }}</td>
+                        <td>{{ $course->name }}</td>
+                        <td>{{ $course->syllabus }}</td>
+                        <td>{{ $course->duration }}</td>
                         <td>
-                            <a href="{{ route('students.show', $student->id) }}" title="View Student">
+                            <a href="{{ route('courses.show', $course->id) }}" title="View Course">
                                 <button class="btn btn-info btn-sm">
                                     <i class="fa fa-eye" aria-hidden="true"></i> View
                                 </button>
                             </a>
-                            <a href="{{ route('students.edit', $student->id) }}" title="Edit Student">
+                            <a href="{{ route('courses.edit', $course->id) }}" title="Edit Course">
                                 <button class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                 </button>
                             </a>
-                            <form method="POST" action="{{ route('students.destroy', $student->id) }}"
+                            <form method="POST" action="{{ route('courses.destroy', $course->id) }}"
                                 accept-charset="UTF-8" style="display:inline">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Student"
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Course"
                                     onclick="return confirm('Confirm delete?')">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
                                 </button>
