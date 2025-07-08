@@ -30,8 +30,8 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $enrollment->enroll_no }}</td>
-                        <td>{{ $enrollment->batch->name }}</td>
-                        <td>{{ $enrollment->student->name }}</td>
+                        <td>{{ $enrollment->batch ? $enrollment->batch->name : 'N/A' }}</td>
+                        <td>{{ $enrollment->student ? $enrollment->student->name : 'N/A' }}</td>
                         <td>{{ $enrollment->join_date }}</td>
                         <td>{{ $enrollment->fee }}</td>
                         <td>
