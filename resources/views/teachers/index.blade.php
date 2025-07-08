@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Students')
+@section('title', 'Teachers')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h2>Student List</h2>
+        <h2>Teacher List</h2>
     </div>
     <div class="card-body">
-        <a href="{{ route('students.create') }}" class="btn btn-success btn-sm" title="Add New Student">
+        <a href="{{ route('teachers.create') }}" class="btn btn-success btn-sm" title="Add New Teacher">
             <i class="fa fa-plus" aria-hidden="true"></i> Add New
         </a>
         <br><br>
@@ -24,28 +24,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $student)
+                    @foreach($teachers as $teacher)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->address }}</td>
-                        <td>{{ $student->mobile }}</td>
+                        <td>{{ $teacher->name }}</td>
+                        <td>{{ $teacher->address }}</td>
+                        <td>{{ $teacher->mobile }}</td>
                         <td>
-                            <a href="{{ route('students.show', $student->id) }}" title="View Student">
+                            <a href="{{ route('teachers.show', $teacher->id) }}" title="View Teacher">
                                 <button class="btn btn-info btn-sm">
                                     <i class="fa fa-eye" aria-hidden="true"></i> View
                                 </button>
                             </a>
-                            <a href="{{ route('students.edit', $student->id) }}" title="Edit Student">
+                            <a href="{{ route('teachers.edit', $teacher->id) }}" title="Edit Teacher">
                                 <button class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                 </button>
                             </a>
-                            <form method="POST" action="{{ route('students.destroy', $student->id) }}"
+                            <form method="POST" action="{{ route('teachers.destroy', $teacher->id) }}"
                                 accept-charset="UTF-8" style="display:inline">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Student"
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Teacher"
                                     onclick="return confirm('Confirm delete?')">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
                                 </button>
