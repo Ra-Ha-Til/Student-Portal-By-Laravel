@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Batches')
+@section('title', 'Enrollments')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h2>Batches</h2>
+        <h2>Enrollment Application</h2>
     </div>
     <div class="card-body">
-        <a href="{{ route('batches.create') }}" class="btn btn-success btn-sm" title="Add New Batch">
+        <a href="{{ route('enrollments.create') }}" class="btn btn-success btn-sm" title="Add New Enrollment">
             <i class="fa fa-plus" aria-hidden="true"></i> Add New
         </a>
         <br><br>
@@ -17,35 +17,39 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Course</th>
-                        <th>Start Date</th>
+                        <th>Enroll No</th>
+                        <th>Batch</th>
+                        <th>Student</th>
+                        <th>Join Date</th>
+                        <th>Fee</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($batches as $batch)
+                    @foreach($enrollments as $enrollment)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $batch->name }}</td>
-                        <td>{{ $batch->course->name }}</td>
-                        <td>{{ $batch->start_date }}</td>
+                        <td>{{ $enrollment->enroll_no }}</td>
+                        <td>{{ $enrollment->batch->name }}</td>
+                        <td>{{ $enrollment->student->name }}</td>
+                        <td>{{ $enrollment->join_date }}</td>
+                        <td>{{ $enrollment->fee }}</td>
                         <td>
-                            <a href="{{ route('batches.show', $batch->id) }}" title="View Batch">
+                            <a href="{{ route('enrollments.show', $enrollment->id) }}" title="View Enrollment">
                                 <button class="btn btn-info btn-sm">
                                     <i class="fa fa-eye" aria-hidden="true"></i> View
                                 </button>
                             </a>
-                            <a href="{{ route('batches.edit', $batch->id) }}" title="Edit Batch">
+                            <a href="{{ route('enrollments.edit', $enrollment->id) }}" title="Edit Enrollment">
                                 <button class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                 </button>
                             </a>
-                            <form method="POST" action="{{ route('batches.destroy', $batch->id) }}"
+                            <form method="POST" action="{{ route('enrollments.destroy', $enrollment->id) }}"
                                 accept-charset="UTF-8" style="display:inline">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Batch"
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Enrollment"
                                     onclick="return confirm('Confirm delete?')">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
                                 </button>
