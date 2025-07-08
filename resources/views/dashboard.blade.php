@@ -5,7 +5,8 @@
 @section('content')
 <div class="container">
     <div class="info-box">
-        <h3>Good Morning, {{ Auth::user()->name }}</h3>
+        <h3>Good Morning, {{ optional(Auth::user())->name ?? 'Guest' }}</h3>
+
         <div class="row">
             <div class="col-md-3">
                 <p><strong>Today Date:</strong> {{ now()->format('d M Y h:iA') }}</p>
