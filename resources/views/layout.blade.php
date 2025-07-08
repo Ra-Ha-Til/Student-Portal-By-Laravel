@@ -4,133 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal - @yield('title')</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <title>TechSerm - @yield('title')</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            position: fixed;
-            background: #343a40;
-            padding-top: 20px;
-        }
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --success-color: #2ecc71;
+        --warning-color: #f39c12;
+        --danger-color: #e74c3c;
+    }
 
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #d1d1d1;
-            display: block;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+    }
 
-        .sidebar a:hover {
-            color: #fff;
-            background: #495057;
-        }
+    .navbar {
+        background-color: var(--secondary-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .sidebar a.active {
-            color: #fff;
-            background: #007bff;
-        }
+    .navbar-brand {
+        color: white;
+        font-weight: bold;
+    }
 
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-        }
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        border: none;
+    }
 
-        .card {
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-        }
+    .card-header {
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 8px 8px 0 0 !important;
+        padding: 15px 20px;
+        font-weight: bold;
+    }
 
-        .card-header {
-            background-color: #f8f9fc;
-            border-bottom: 1px solid #e3e6f0;
-            padding: 1rem 1.35rem;
-            font-weight: 600;
-        }
+    .btn-success {
+        background-color: var(--success-color);
+        border-color: var(--success-color);
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .btn-danger {
+        background-color: var(--danger-color);
+        border-color: var(--danger-color);
+    }
+
+    .btn-info {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .dashboard-card {
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-card.students {
+        background-color: #3498db;
+    }
+
+    .dashboard-card.teachers {
+        background-color: #2ecc71;
+    }
+
+    .dashboard-card.sms {
+        background-color: #f39c12;
+    }
+
+    .dashboard-card.notices {
+        background-color: #9b59b6;
+    }
+
+    .info-box {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
     </style>
-
     @yield('styles')
 </head>
 
 <body>
-    <div class="sidebar">
-        <a href="{{ route('dashboard') }}" class="{{ Request::is('dashboard') ? 'active' : '' }}">
-            <i class="fas fa-tachometer-alt"></i> Dashboard
-        </a>
-        <a href="{{ route('students.index') }}" class="{{ Request::is('students*') ? 'active' : '' }}">
-            <i class="fas fa-users"></i> Students
-        </a>
-        <a href="{{ route('teachers.index') }}" class="{{ Request::is('teachers*') ? 'active' : '' }}">
-            <i class="fas fa-chalkboard-teacher"></i> Teachers
-        </a>
-        <a href="{{ route('courses.index') }}" class="{{ Request::is('courses*') ? 'active' : '' }}">
-            <i class="fas fa-book"></i> Courses
-        </a>
-        <a href="{{ route('batches.index') }}" class="{{ Request::is('batches*') ? 'active' : '' }}">
-            <i class="fas fa-layer-group"></i> Batches
-        </a>
-        <a href="{{ route('enrollments.index') }}" class="{{ Request::is('enrollments*') ? 'active' : '' }}">
-            <i class="fas fa-clipboard-list"></i> Enrollments
-        </a>
-        <a href="{{ route('payments.index') }}" class="{{ Request::is('payments*') ? 'active' : '' }}">
-            <i class="fas fa-money-bill-wave"></i> Payments
-        </a>
-        <a href="/phpmyadmin" target="_blank" class="mt-4">
-            <i class="fas fa-database"></i> phpMyAdmin
-        </a>
-    </div>
-
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <i class="fas fa-graduation-cap"></i> Student Portal
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    TechSerm Education
                 </a>
-                <div class="navbar-nav ml-auto">
-                    <span class="navbar-text me-3">
-                        <i class="fas fa-database text-primary"></i> MySQL
-                    </span>
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user-circle"></i> Admin
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('students.index') }}">Students</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('teachers.index') }}">Teachers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('batches.index') }}">Batches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('enrollments.index') }}">Enrollments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('payments.index') }}">Payments</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown">
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
-        <div class="container-fluid">
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            @endif
-
-            @yield('content')
-        </div>
+        <main class="py-4">
+            <div class="container">
+                @yield('content')
+            </div>
+        </main>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>
 
