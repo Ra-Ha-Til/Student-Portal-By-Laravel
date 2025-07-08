@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Student')
+@section('title', 'Edit Course')
 
 @section('content')
 <div class="card">
-    <div class="card-header">Edit Student</div>
+    <div class="card-header">Edit Course</div>
     <div class="card-body">
-        <form action="{{ route('students.update', $student->id) }}" method="POST">
+        <form action="{{ route('courses.update', $course->id) }}" method="POST">
             @csrf
             @method('PUT')
-            <input type="hidden" name="id" value="{{ $student->id }}">
+            <input type="hidden" name="id" value="{{ $course->id }}">
             <label>Name</label><br>
-            <input type="text" name="name" value="{{ $student->name }}" class="form-control"><br>
-            <label>Address</label><br>
-            <input type="text" name="address" value="{{ $student->address }}" class="form-control"><br>
-            <label>Mobile</label><br>
-            <input type="text" name="mobile" value="{{ $student->mobile }}" class="form-control"><br>
+            <input type="text" name="name" value="{{ $course->name }}" class="form-control"><br>
+            <label>Syllabus</label><br>
+            <input type="text" name="syllabus" value="{{ $course->syllabus }}" class="form-control"><br>
+            <label>Duration</label><br>
+            <input type="text" name="duration" value="{{ $course->duration }}" class="form-control"><br>
             <input type="submit" value="Update" class="btn btn-success"><br>
         </form>
     </div>
