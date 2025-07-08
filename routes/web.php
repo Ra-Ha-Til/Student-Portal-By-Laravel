@@ -25,8 +25,7 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
-// Auth routes (login, register, logout, etc.)
-Auth::routes();
+
 
 // ✅ Only logged-in users can access these routes
 Route::middleware(['auth'])->group(function () {
@@ -43,3 +42,5 @@ Route::middleware(['auth'])->group(function () {
         'payments' => PaymentController::class,
     ]);
 });
+
+
