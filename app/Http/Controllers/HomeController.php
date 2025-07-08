@@ -9,12 +9,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $studentCount = Student::count();
-        $teacherCount = Teacher::count();
-
         return view('dashboard', [
-            'studentCount' => $studentCount,
-            'teacherCount' => $teacherCount,
+            'studentCount' => Student::count(),
+            'teacherCount' => Teacher::count(),
         ]);
     }
 }
