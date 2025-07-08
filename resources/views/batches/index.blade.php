@@ -28,7 +28,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $batch->name }}</td>
-                        <td>{{ $batch->course->name }}</td>
+                        <td>{{ $batch->course ? $batch->course->name : 'No Course' }}</td>
                         <td>{{ $batch->start_date }}</td>
                         <td>
                             <a href="{{ route('batches.show', $batch->id) }}" title="View Batch">
