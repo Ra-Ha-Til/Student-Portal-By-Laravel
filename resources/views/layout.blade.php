@@ -8,101 +8,101 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-    :root {
-        --primary-color: #3498db;
-        --secondary-color: #2c3e50;
-        --accent-color: #e74c3c;
-        --light-color: #ecf0f1;
-        --dark-color: #2c3e50;
-        --success-color: #2ecc71;
-        --warning-color: #f39c12;
-        --danger-color: #e74c3c;
-    }
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+        }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
 
-    .navbar {
-        background-color: var(--secondary-color);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    .navbar-brand {
-        color: white;
-        font-weight: bold;
-    }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
 
-    .card {
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        border: none;
-    }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+        }
 
-    .card-header {
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 8px 8px 0 0 !important;
-        padding: 15px 20px;
-        font-weight: bold;
-    }
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px 8px 0 0 !important;
+            padding: 15px 20px;
+            font-weight: bold;
+        }
 
-    .btn-success {
-        background-color: var(--success-color);
-        border-color: var(--success-color);
-    }
+        .btn-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+        }
 
-    .btn-primary {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-    }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
 
-    .btn-danger {
-        background-color: var(--danger-color);
-        border-color: var(--danger-color);
-    }
+        .btn-danger {
+            background-color: var(--danger-color);
+            border-color: var(--danger-color);
+        }
 
-    .btn-info {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-    }
+        .btn-info {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
 
-    .dashboard-card {
-        text-align: center;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        color: white;
-        font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        .dashboard-card {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    .dashboard-card.students {
-        background-color: #3498db;
-    }
+        .dashboard-card.students {
+            background-color: #3498db;
+        }
 
-    .dashboard-card.teachers {
-        background-color: #2ecc71;
-    }
+        .dashboard-card.teachers {
+            background-color: #2ecc71;
+        }
 
-    .dashboard-card.sms {
-        background-color: #f39c12;
-    }
+        .dashboard-card.sms {
+            background-color: #f39c12;
+        }
 
-    .dashboard-card.notices {
-        background-color: #9b59b6;
-    }
+        .dashboard-card.notices {
+            background-color: #9b59b6;
+        }
 
-    .info-box {
-        background-color: white;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        .info-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
     @yield('styles')
 </head>
