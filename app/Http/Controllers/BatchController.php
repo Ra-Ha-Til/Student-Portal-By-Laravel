@@ -24,7 +24,7 @@ class BatchController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'course_id' => 'required',
+            'course_id' => 'required|exists:courses,id',
             'start_date' => 'required|date',
         ]);
 
@@ -49,7 +49,7 @@ class BatchController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'course_id' => 'required',
+            'course_id' => 'required|exists:courses,id',
             'start_date' => 'required|date',
         ]);
 
