@@ -26,8 +26,8 @@ class EnrollmentController extends Controller
     {
         $request->validate([
             'enroll_no' => 'required|unique:enrollments',
-            'batch_id' => 'required',
-            'student_id' => 'required',
+            'batch_id' => 'required|exists:batches,id',
+            'student_id' => 'required|exists:students,id',
             'join_date' => 'required|date',
             'fee' => 'required|numeric',
         ]);
@@ -54,8 +54,8 @@ class EnrollmentController extends Controller
     {
         $request->validate([
             'enroll_no' => 'required|unique:enrollments,enroll_no,' . $enrollment->id,
-            'batch_id' => 'required',
-            'student_id' => 'required',
+            'batch_id' => 'required|exists:batches,id',
+            'student_id' => 'required|exists:students,id',
             'join_date' => 'required|date',
             'fee' => 'required|numeric',
         ]);
