@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Add Student')
+@section('title', 'Add Teacher')
 
 @section('content')
 <div class="card">
-    <div class="card-header">Students Page</div>
+    <div class="card-header">Teachers Page</div>
     <div class="card-body">
-        <form action="{{ route('students.store') }}" method="POST">
+        <form action="{{ route('teachers.store') }}" method="POST">
             @csrf
             <label>Name</label><br>
             <input type="text" name="name" id="name" class="form-control"><br>
