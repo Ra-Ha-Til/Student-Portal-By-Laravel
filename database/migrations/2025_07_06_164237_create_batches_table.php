@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('course_id')->constrained();
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->date('start_date');
             $table->timestamps();
         });

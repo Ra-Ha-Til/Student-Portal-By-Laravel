@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('name');
             $table->text('syllabus');
             $table->string('duration');
+            $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
