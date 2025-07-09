@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('enrollment_id')->constrained();
+            $table->foreignId('enrollment_id')->constrained()->onDelete('cascade');
             $table->date('paid_date');
             $table->decimal('amount', 10, 2);
             $table->timestamps();
