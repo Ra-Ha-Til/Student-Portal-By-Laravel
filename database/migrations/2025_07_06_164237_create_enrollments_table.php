@@ -10,8 +10,8 @@ return new class extends Migration {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
             $table->string('enroll_no')->unique();
-            $table->foreignId('batch_id')->constrained();
-            $table->foreignId('student_id')->constrained();
+            $table->foreignId('batch_id')->constrained()->onDelete('cascade');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->date('join_date');
             $table->decimal('fee', 10, 2);
             $table->timestamps();
